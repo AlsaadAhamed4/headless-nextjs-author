@@ -1,7 +1,7 @@
 // this is graphQl request
-export const contentGqlFetcher = async (query: string, variables = {}, preview = false)=>{  // fetching the data from contentful webisite using the secret keys
+export const contentGqlFetcher = async<T>({query, variables = {}, preview = false}:{query : string, variables?: any , preview? : boolean}) : Promise<T | undefined> =>{  // fetching the data from contentful webisite using the secret keys
     const res = await 
-    fetch(`https://graphql.contentful.com/content/v1/spaces/:${process.env.CONTENTFUL_SPACE_ID}`,
+    fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
         {
             method : 'POST',
             headers :{
@@ -16,5 +16,5 @@ export const contentGqlFetcher = async (query: string, variables = {}, preview =
     if(errors){
         throw new Error('could not get the content')
     }
-    return data;
+    return data as T;
 }

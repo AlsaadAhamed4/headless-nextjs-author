@@ -24,3 +24,31 @@
   b. Setup preview contenful
   c. Setup draft mode next.js route handlers
   d. Preview Hero
+
+
+
+
+
+  ---------------------
+
+  Once creating content model 
+    - create content type and save them
+  
+  Go to Appollo explorer studio & and paste the contentfull graphql url + spaceid 
+    - add header key of authorization with value of Bearer and then the access token
+    - after selecting the collection from the Appollo we select the query based on that we get the data.
+    query HeroCollection {
+  heroCollection {
+    items {
+      title
+      subTitle
+      preTitle
+      callToActionsCollection {
+        items {
+          link
+          label
+        }
+      }
+    }
+  }
+}  -- this query will give us equalent data back.
