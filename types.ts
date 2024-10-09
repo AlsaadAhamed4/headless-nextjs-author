@@ -13,3 +13,14 @@ export type HeroQueryType = {
         }[]
     }
 }
+
+export type ClientLogoType = {
+    assetCollection: {
+        items: {
+            url: string
+            width: number
+            title: string
+            height: number
+        }[]
+    }
+}
