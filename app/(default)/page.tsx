@@ -13,14 +13,13 @@ import Features04 from '@/components/features-04'
 import Pricing from './pricing-section'
 import Testimonials from '@/components/testimonials'
 import Cta from '@/components/cta'
-import { getClientLogos } from '@/content/queries'
+import LogoWall from '@/components/LogoWall'
 
 export default async function Home() {
-  const ClientLogoList =  await getClientLogos();
   return (
     <>
       <Hero />
-      <Clients ClientLogoList={ClientLogoList}/>
+      <LogoWall/>
       <Features />
       <Features02 />
       <Features03 />

@@ -24,3 +24,17 @@ export type ClientLogoType = {
         }[]
     }
 }
+
+export type HeaderLinkType = {
+    navigationCollection: {
+        items: {
+            name: string
+            linksCollection: {
+                items: {
+                    label: string
+                    link: string
+                }[]
+            }
+        }[]
+    }
+}

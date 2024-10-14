@@ -1,4 +1,5 @@
-import { ClientLogoType, HeroQueryType } from "@/types";
+import "server-only";
+import { ClientLogoType, HeaderLinkType, HeroQueryType } from "@/types";
 import { contentGqlFetcher } from "./fetch";
 
 
@@ -51,4 +52,33 @@ export const getClientLogos = async () => {
         throw 'oops'
     }
     return data;
+}
+
+
+export const getContentForHeaderLinks = async()=>{
+    const query = `#graphql
+    query Navigation($where: NavigationFilter) {
+        navigationCollection(where: $where) {
+            items {
+            name
+            linksCollection {
+                items {
+                label
+                link
+                }
+            }
+            }
+        }
+    }
+    `
+    const data = await contentGqlFetcher<HeaderLinkType>({query, variables : {
+        "where": {
+          "name": "Header"
+        }
+      }})
+    
+      if(!data){
+         throw 'oops'
+      }
+      return data;
 }

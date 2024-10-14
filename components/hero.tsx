@@ -8,6 +8,7 @@ export default async function Hero() {
   const content = heroData.heroCollection.items[0]
   const cta1 = content.callToActionsCollection.items[0];
   const cta2 = content.callToActionsCollection.items[1];
+  console.log(content)
   return (
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">

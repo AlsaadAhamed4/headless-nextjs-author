@@ -45,7 +45,7 @@ export default function Clients({ClientLogoList}:{ClientLogoList : ClientLogoTyp
                 {/* Carousel items */}
                 {
                   ClientLogoList.assetCollection.items.map((item : any)=>(
-                <div className="swiper-slide !w-auto">
+                <div className="swiper-slide !w-auto" key={item.title}>
                   <Image src={item.url} alt={item.title} width={item.width} height={item.height} />
                 </div>
                   ))
